@@ -63,6 +63,7 @@ const Verify = ({ showAlert }) => {
   const [eventId, setEventId] = useState("");
   const [eventIdAvailable, setEventIdAvailable] = useState(true);
   const [eventIdError, setEventIdError] = useState("");
+  const [checking, setChecking] = useState(false);
   const [currentEventId, setCurrentEventId] = useState("ZXhwb19hdXRv");
 
   useEffect(() => {
@@ -76,6 +77,11 @@ const Verify = ({ showAlert }) => {
   }, []);
 
   const checkEventIdValidity = async (id) => {
+    if (id === "" || !id) {
+      showAlert("Event id cannot be empty", "error");
+      return;
+    }
+    setChecking(true);
     try {
       const response = await fetch(
         `${import.meta.env.VITE_BASE_URL}/project/get-project/${id}`,
@@ -104,18 +110,20 @@ const Verify = ({ showAlert }) => {
       showAlert("Error checking event ID availability:", "error");
       setEventIdAvailable(false);
       setEventIdError("Error checking event ID availability");
+    } finally {
+      setChecking(false);
     }
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (eventId) {
-        checkEventIdValidity(eventId);
-      }
-    }, 1000);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (eventId) {
+  //       checkEventIdValidity(eventId);
+  //     }
+  //   }, 1000);
 
-    return () => clearTimeout(timer);
-  }, [eventId]);
+  //   return () => clearTimeout(timer);
+  // }, [eventId]);
 
   const handleEventIdSubmit = () => {
     if (eventIdAvailable) {
@@ -310,6 +318,7 @@ const Verify = ({ showAlert }) => {
                   value={eventId}
                   onChange={(e) => setEventId(e.target.value)}
                   // minLength={4}
+                  onBlur={() => checkEventIdValidity(eventId)}
                 />
                 {eventIdError && (
                   <p className="text-red-500 text-sm mt-1">{eventIdError}</p>
@@ -335,9 +344,9 @@ const Verify = ({ showAlert }) => {
                   type="button"
                   onClick={handleEventIdSubmit}
                   className="inline-flex w-full justify-center rounded-md bg-transparent px-4 py-2 text-text-inactive shadow-sm ring-1 ring-primary-white ring-opacity-10 hover:bg-green-500/30 hover:text-white transition ease-in-out disabled:opacity-50"
-                  disabled={!eventIdAvailable || !eventId}
+                  disabled={!eventIdAvailable || !eventId || checking}
                 >
-                  Set Event ID
+                  {checking ? "Checking..." : "Set Event ID"}
                 </button>
               </div>
             </div>
