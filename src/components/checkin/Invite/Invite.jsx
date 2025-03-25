@@ -453,7 +453,7 @@ const Invite = ({ showAlert }) => {
                         onChange={(e) => handleChange(e, index)}
                         onKeyDown={(e) => handleKeyDown(e, index)}
                         maxLength={1}
-                        className="w-[3rem] xs:w-[4rem] lg:w-[5rem] h-[3rem] xs:h-[4rem] lg:h-[5rem] text-center text-[2.5rem] font-extrabold text-text bg-transparent border border-background-accent appearance-none rounded p-4  border-1 focus:border-background-accent focus:ring-1 focus:ring-background-accent outline-none focus:shadow focus:shadow-background-accent transition ease-in-out duration-150"
+                        className="w-[3rem] xs:w-[4rem] lg:w-[5rem] h-[3rem] xs:h-[4rem] lg:h-[5rem] text-center text-[2.5rem] font-extrabold text-text bg-transparent border-background-accent appearance-none rounded p-4  border-1 focus:border-background-accent focus:ring-1 focus:ring-background-accent outline-none focus:shadow focus:shadow-background-accent transition ease-in-out duration-150"
                       />
                     ))}
                   </div>
@@ -599,7 +599,7 @@ const Invite = ({ showAlert }) => {
                           onChange={(e) => handleChange(e, index)}
                           onKeyDown={(e) => handleKeyDown(e, index)}
                           maxLength={1}
-                          className="w-[3rem] xs:w-[4rem] lg:w-[5rem] h-[3rem] xs:h-[4rem] lg:h-[5rem] text-center text-[2.5rem] font-extrabold text-text bg-transparent border border-background-accent appearance-none rounded p-4  border-1 focus:border-background-accent focus:ring-1 focus:ring-background-accent outline-none focus:shadow focus:shadow-background-accent transition ease-in-out duration-150"
+                          className="w-[3rem] xs:w-[4rem] lg:w-[5rem] h-[3rem] xs:h-[4rem] lg:h-[5rem] text-center text-[2.5rem] font-extrabold text-text bg-transparent border-background-accent appearance-none rounded p-4  border-1 focus:border-background-accent focus:ring-1 focus:ring-background-accent outline-none focus:shadow focus:shadow-background-accent transition ease-in-out duration-150"
                         />
                       ))}
                     </div>
