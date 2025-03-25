@@ -19,6 +19,7 @@ const SearchUser = ({ showAlert }) => {
   const [users, setUsers] = useState([]);
   const [eventData, setEventData] = useState({});
   const [search, setSearch] = useState("");
+  const [filteredUsers, setFilteredUsers] = useState([]);
   const [orderBy, setOrderBy] = useState("user_id");
   const numPerPage = 8;
   const [pages, setPages] = useState(null);
@@ -37,7 +38,6 @@ const SearchUser = ({ showAlert }) => {
         ...prevDetails,
         event: eParam,
       }));
-      console.log(eParam);
     } else {
       alert("No event details attached");
       navigate("/verify");
@@ -68,7 +68,6 @@ const SearchUser = ({ showAlert }) => {
         }
         const result = await response.json();
         if (isMounted) {
-          console.log(result);
           if (result.success) {
             setEventData(result.data);
             await fetchUsers(result.data.id);
@@ -121,6 +120,7 @@ const SearchUser = ({ showAlert }) => {
       const res = await response.json();
       if (res.success) {
         setUsers(res.data);
+        setFilteredUsers(res.data);
       }
     } catch (error) {
       console.error("Fetch error:", error);
@@ -129,34 +129,6 @@ const SearchUser = ({ showAlert }) => {
       setLoader(false);
     }
   };
-
-  useEffect(() => {
-    // const fetchUsers = async () => {
-    //   if (eventData && eventData.uid && search.trim() === "") {
-    //     const result = await getUsersForEvent(
-    //       eventData.uid,
-    //       orderBy,
-    //       page,
-    //       numPerPage
-    //     );
-    //     setSearchIndicator(false);
-    //     if (result.status === RESULT_STATUS.SUCCESS) {
-    //       console.log("Got users without search:", result.data);
-    //       getNumPages(eventData.uid, numPerPage)
-    //         .then((pages) => {
-    //           setPages(pages);
-    //         })
-    //         .catch((error) => {
-    //           console.error("Error getting number of pages:", error);
-    //         });
-    //       setUsers(result.data);
-    //     } else if (result.status === RESULT_STATUS.ERROR) {
-    //       console.error("Error getting users for event:", result.message);
-    //     }
-    //   }
-    // };
-    // fetchUsers();
-  }, [page, eventData, search, orderBy]);
 
   const handlePreviousClick = () => {
     if (page === 1) return;
@@ -168,17 +140,25 @@ const SearchUser = ({ showAlert }) => {
     setPage((prev) => prev + 1);
   };
 
-  //   const handleSearch = async () => {
-  //     const result = await searchUser(eventData.uid, search, orderBy, numPerPage);
-  //     setSearchIndicator(true);
-  //     if (result.status === RESULT_STATUS.SUCCESS) {
-  //       console.log("Searched users:", result.data);
-  //       setUsers(result.data);
-  //     } else if (result.status === RESULT_STATUS.ERROR) {
-  //       console.error("Error adding new event:", result.message);
-  //       setSearch("");
-  //     }
-  //   };
+  const handleSearch = async () => {
+    // const result = await searchUser(eventData.uid, search, orderBy, numPerPage);
+    if (search === "") {
+      setFilteredUsers(users);
+      return;
+    }
+    const filtereduser = users.filter(
+      (user) => user.first_name === search || user.email === search
+    );
+    setFilteredUsers(filtereduser);
+    setSearchIndicator(true);
+    // if (result.status === RESULT_STATUS.SUCCESS) {
+    //   console.log("Searched users:", result.data);
+    //   setUsers(result.data);
+    // } else if (result.status === RESULT_STATUS.ERROR) {
+    //   console.error("Error adding new event:", result.message);
+    //   setSearch("");
+    // }
+  };
 
   const toCamelCase = (str) => {
     const words = str.toLowerCase().split(" ");
@@ -309,7 +289,7 @@ const SearchUser = ({ showAlert }) => {
                   <circle
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-width="15"
+                    strokeWidth="15"
                     r="15"
                     cx="40"
                     cy="30"
@@ -327,7 +307,7 @@ const SearchUser = ({ showAlert }) => {
                   <circle
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-width="15"
+                    strokeWidth="15"
                     r="15"
                     cx="100"
                     cy="30"
@@ -345,7 +325,7 @@ const SearchUser = ({ showAlert }) => {
                   <circle
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-width="15"
+                    strokeWidth="15"
                     r="15"
                     cx="160"
                     cy="30"
@@ -375,11 +355,11 @@ const SearchUser = ({ showAlert }) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                     <g
                       id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     ></g>
                     <g id="SVGRepo_iconCarrier">
                       {" "}
@@ -433,11 +413,6 @@ const SearchUser = ({ showAlert }) => {
       accessorKey: "email",
       cell: ({ row }) => redactEmail(row.original.email),
     },
-    // {
-    //   header: "Phone",
-    //   accessorKey: "phone",
-    //   cell: ({ row }) => redactPhone(row.original.phone),
-    // },
     {
       header: "Invite code",
       accessorKey: "id",
@@ -462,7 +437,7 @@ const SearchUser = ({ showAlert }) => {
   ];
 
   const table = useReactTable({
-    data: users,
+    data: filteredUsers,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
@@ -478,11 +453,11 @@ const SearchUser = ({ showAlert }) => {
           Attendee List
         </h2>
 
-        {/* <SearchPanel
+        <SearchPanel
           handleSearch={handleSearch}
           setSearch={setSearch}
           search={search}
-        /> */}
+        />
         {loader ? (
           <Loader />
         ) : (

@@ -143,7 +143,7 @@ const FacialVerify = () => {
                 fill="none"
                 stroke-opacity="1"
                 stroke="currentColor"
-                stroke-width=".5"
+                strokeWidth=".5"
                 cx="100"
                 cy="100"
                 r="0"
@@ -158,7 +158,7 @@ const FacialVerify = () => {
                   repeatCount="indefinite"
                 ></animate>
                 <animate
-                  attributeName="stroke-width"
+                  attributeName="strokeWidth"
                   calcMode="spline"
                   dur="3"
                   values="0;25"

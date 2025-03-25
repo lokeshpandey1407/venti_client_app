@@ -243,11 +243,11 @@ const QRVerify = ({ showAlert }) => {
                     instead.{" "}
                   </p>
                   <button
-                    className="uppercase font-bold font-sora rounded-md w-[14rem] h-[3rem] bg-background-accent text-black mt-8 text-[1.2rem]"
+                    className="uppercase font-bold font-sora rounded-md w-[14rem] h-[3rem] bg-background-accent text-black mt-8 text-[1.2rem] cursor-pointer"
                     title="Try Invite Code"
                     onClick={() => navigate(`/invite-code?e=${currentEventId}`)}
                   >
-                    get 4 digit code
+                    Use Invite code
                   </button>
                 </div>
               </div>
@@ -269,11 +269,11 @@ const QRVerify = ({ showAlert }) => {
               id="Capa_1"
               viewBox="0 0 612 612"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
               <g
                 id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></g>
               <g id="SVGRepo_iconCarrier">
                 {" "}

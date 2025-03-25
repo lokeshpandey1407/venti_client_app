@@ -41,7 +41,6 @@ const Invite = ({ showAlert }) => {
         ...prevDetails,
         event: eParam,
       }));
-      console.log(eParam);
     } else {
       alert("No event details attached");
       navigate("/verify");
@@ -371,8 +370,8 @@ const Invite = ({ showAlert }) => {
                   <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}
@@ -380,8 +379,8 @@ const Invite = ({ showAlert }) => {
                       fill="none"
                       fill-rule="evenodd"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       transform="matrix(0 -1 1 0 2.5 15.5)"
                     >
                       {" "}
@@ -477,7 +476,7 @@ const Invite = ({ showAlert }) => {
                           <circle
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-width="15"
+                            strokeWidth="15"
                             r="15"
                             cx="40"
                             cy="30"
@@ -495,7 +494,7 @@ const Invite = ({ showAlert }) => {
                           <circle
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-width="15"
+                            strokeWidth="15"
                             r="15"
                             cx="100"
                             cy="30"
@@ -513,7 +512,7 @@ const Invite = ({ showAlert }) => {
                           <circle
                             fill="currentColor"
                             stroke="currentColor"
-                            stroke-width="15"
+                            strokeWidth="15"
                             r="15"
                             cx="160"
                             cy="30"
@@ -623,7 +622,7 @@ const Invite = ({ showAlert }) => {
                             <circle
                               fill="currentColor"
                               stroke="currentColor"
-                              stroke-width="15"
+                              strokeWidth="15"
                               r="15"
                               cx="40"
                               cy="30"
@@ -641,7 +640,7 @@ const Invite = ({ showAlert }) => {
                             <circle
                               fill="currentColor"
                               stroke="currentColor"
-                              stroke-width="15"
+                              strokeWidth="15"
                               r="15"
                               cx="100"
                               cy="30"
@@ -659,7 +658,7 @@ const Invite = ({ showAlert }) => {
                             <circle
                               fill="currentColor"
                               stroke="currentColor"
-                              stroke-width="15"
+                              strokeWidth="15"
                               r="15"
                               cx="160"
                               cy="30"
@@ -701,11 +700,11 @@ const Invite = ({ showAlert }) => {
                   id="Capa_1"
                   viewBox="0 0 612 612"
                 >
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g
                     id="SVGRepo_tracerCarrier"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
                     {" "}

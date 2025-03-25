@@ -314,26 +314,26 @@ const WebcamCapture = ({ onCapture, isDisabled = false }) => {
               <path
                 d="M252.427 4H267.996C269.653 4 270.996 5.34315 270.996 7V20.3109"
                 stroke="white"
-                stroke-width="7"
-                stroke-linecap="round"
+                strokeWidth="7"
+                strokeLinecap="round"
               />
               <path
                 d="M252.427 272H267.996C269.653 272 270.996 270.657 270.996 269V255.689"
                 stroke="white"
-                stroke-width="7"
-                stroke-linecap="round"
+                strokeWidth="7"
+                strokeLinecap="round"
               />
               <path
                 d="M22.5693 4H7.00005C5.3432 4 4.00005 5.34315 4.00005 7V20.3109"
                 stroke="white"
-                stroke-width="7"
-                stroke-linecap="round"
+                strokeWidth="7"
+                strokeLinecap="round"
               />
               <path
                 d="M22.5693 272H7.00005C5.3432 272 4.00005 270.657 4.00005 269V255.689"
                 stroke="white"
-                stroke-width="7"
-                stroke-linecap="round"
+                strokeWidth="7"
+                strokeLinecap="round"
               />
             </svg>
           </div>
