@@ -71,9 +71,10 @@ const Verify = ({ showAlert }) => {
     if (storedEventId) {
       setCurrentEventId(storedEventId);
       setEventId(storedEventId);
-    } else {
-      showAlert("Event id is not configured", "error");
     }
+    // else {
+    //   showAlert("Event id is not configured", "error");
+    // }
   }, []);
 
   const checkEventIdValidity = async (id) => {

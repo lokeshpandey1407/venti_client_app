@@ -30,7 +30,7 @@ function App() {
         <Route path="/" element={<Verify />}></Route>
         {/* <Route exact path="/tester" element={<Tester />} /> */}
         {/* <Route path="/ticket" element={<Ticket showAlert={showAlert} />} /> */}
-        <Route path="/validate" element={<Validate />} />
+        <Route path="/validate" element={<Validate showAlert={showAlert} />} />
         <Route path="/verify" element={<Verify showAlert={showAlert} />} />
         <Route
           path="/face-verification"
@@ -40,7 +40,7 @@ function App() {
           path="/face-validation"
           element={<FacialValidate showAlert={showAlert} />}
         />
-        <Route
+        <Route  
           path="/qr-verification"
           element={<QRVerify showAlert={showAlert} />}
         />
